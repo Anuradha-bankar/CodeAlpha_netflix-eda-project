@@ -1,27 +1,27 @@
 # netflix-eda-project
 # Netflix Data Analysis (EDA Project)
 
-## 📌 Description
+## Description
 This project performs Exploratory Data Analysis (EDA) on Netflix dataset to find insights.
 
-## 🛠 Tools Used
+## Tools Used
 - Python
 - Pandas
 - Matplotlib
 - Seaborn
 
-## 🔍 Tasks Performed
+## Tasks Performed
 - Data Cleaning
 - Handling Missing Values
 - Removing Duplicates
 - Data Visualization
 
-## 📂 Dataset
+## Dataset
 Netflix Movies and TV Shows dataset
 
-## ▶ How to Run
+## How to Run
 1. Install required libraries
 2. Run eda_analysis.py
 
-## 📊 Output
+## Output
 Cleaned dataset and visualizations
