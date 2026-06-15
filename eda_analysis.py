@@ -4,7 +4,6 @@ df = pd.read_csv("netflix_titles.csv", encoding="latin1")
 
 print(df.head())
 
-
 #unwanted coloums remove
 df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
 print(df.head())
@@ -33,6 +32,20 @@ sns.countplot(x='type', data=df)
 plt.title("Movies vs TV Shows")
 plt.show()
 
+#hypotheses 1:
+#movies are more than TV shows
+movies = df[df['type'] == 'Movie'].shape[0]
+tv = df[df['type'] == 'TV Show'].shape[0]
+
+print("Movies:", movies)
+print("TV Shows:", tv)
+
+#conclusion
+if movies > tv:
+    print("Hypothesis True: Movies are more than TV Shows")
+else:
+    print("Hypothesis False")
+
 #content added per year
 year_data = df['year_added'].value_counts().sort_index()
 
@@ -41,6 +54,14 @@ plt.title("Content Added Over Years")
 plt.xlabel("Year")
 plt.ylabel("Count")
 plt.show()
+
+#hypotheses 2:
+#content increase in recent year
+df['year_added'] = pd.to_datetime(df['date_added']).dt.year
+
+year_counts = df['year_added'].value_counts().sort_index()
+
+print(year_counts)
 
 #top countries
 country_data = df['country'].value_counts().head(10)
@@ -54,6 +75,11 @@ plt.show()
 sns.countplot(y='rating', data=df, order=df['rating'].value_counts().index)
 plt.title("Ratings Distribution")
 plt.show()
+
+#hypotheses 3:
+#TV-MA is a common rating
+top_rating = df['rating'].value_counts().idxmax()
+print("Most common rating:", top_rating)
 
 #top geners
 genre_data = df['listed_in'].str.split(',', expand=True).stack()
@@ -74,3 +100,9 @@ movies['duration'] = pd.to_numeric(movies['duration'], errors='coerce')
 sns.histplot(movies['duration'], bins=20)
 plt.title("Movie Duration Distribution")
 plt.show()
+
+#hypotheses 4:
+#Duration of Movies is more than Tv shows
+avg_duration = movies['duration'].mean()
+
+print("Average movie duration:", avg_duration)
