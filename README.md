@@ -1,5 +1,5 @@
 # netflix-eda-project
-# Netflix Data Analysis (EDA Project)
+# Exploratory Data Analysis (EDA)
 
 ## Description
 This project performs Exploratory Data Analysis (EDA) on Netflix dataset to find insights.
@@ -18,10 +18,6 @@ This project performs Exploratory Data Analysis (EDA) on Netflix dataset to find
 
 ## Dataset
 Netflix Movies and TV Shows dataset
-
-## How to Run
-1. Install required libraries
-2. Run eda_analysis.py
 
 ## Output
 Cleaned dataset and visualizations
